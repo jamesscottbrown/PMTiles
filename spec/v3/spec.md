@@ -1,5 +1,7 @@
 # PMTiles version 3
 
+* 3.1: added `metadata` details.
+
 ## File structure
 
 A PMTiles archive is a single-file archive of square tiles with five main sections:
@@ -87,6 +89,10 @@ The `Header` is 127 bytes, with little-endian integer values:
  	* Automatically determine a visualization method
 	* provide a conventional MIME type `Content-Type` HTTP header
 	* Enforce a canonical extension e.g. `.mvt`, `png`, `jpeg`, `.webp` to prevent duplication in caches
+
+### Metadata
+
+The JSON metadata is designed to contain arbitrary, application-specific data. However, if the `TileType` is `mvt`, the metadata should contain a key `vector_layers` as described in the [MBTiles 1.3 spec](https://github.com/tilezen/joerd/blob/master/docs/use-service.md). It may also contain `tilestats` as described in the same spec.
 
 ### Organization
 
